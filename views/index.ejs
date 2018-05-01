@@ -1,0 +1,122 @@
+<% include partials/header %>
+
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+th {
+    text-align: left;
+}
+</style>
+
+<p style="text-align:left;">
+Bokningssystem <a href="bokningar">bokningar</a> <a href="index"><b>Kommande Körningar</b></a>
+<span style="float:right;"><a href="skapaBokning">Skapa ny bokning</a></span>
+</p>
+
+<p> <!--Buttons "Nya Bokningar", "Pågående Bokningar", "Genomförda Bokningar" -->
+<button type="button" onclick="myFunction(0)">Nya bokningar</button>
+<button type="button" onclick="myFunction(1)">Pågående bokningar</button>
+<button type="button" onclick="myFunction(2)">Genomförda bokningar</button>
+</p>
+
+<div id="nya" display: block> <!--Following 3 div objects contains the elements for which table of customers is shown -->
+<table id="demo"></table>
+</div>
+
+
+
+<div id="pagaende" style="display: none;">
+Pågående Bokningar
+</div>
+
+<div id="genomforda" style="display: none;">
+Genomförda Bokningar
+</div>
+
+<script> // Function related to buttons, determines what info is shown
+function myFunction(sw) {
+    var x = document.getElementById("nya");
+    var y = document.getElementById("pagaende");
+    var z = document.getElementById("genomforda");
+    y.style.display = "none";
+    z.style.display = "none";
+    if (sw == 0) {
+        x.style.display = "block";
+        y.style.display = "none";
+        z.style.display = "none";
+    } else if (sw == 1){
+        x.style.display = "none";
+        y.style.display = "block";
+        z.style.display = "none";
+    }
+    else if (sw == 2){
+    	x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "block";
+   }
+   else {
+		x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "none";
+	}
+}
+</script>
+
+
+
+
+<script method="post" action="/">/*
+//	alert(1);
+	if(customers.length>0){
+		var body = document.getElementById('demo');
+		var tbl = document.createElement("table");
+		var tblBody = document.createElement("table");
+		
+		customers.forEach(function(customer){
+			var tr = document.createElement('tr');
+			var td = document.createElement('td');
+			
+			var content = document.createTextNode(customer.datum);
+			td.appendChild(text);
+			tr.appendChild(td);
+			
+			var content = document.createTextNode(customer.tid);
+			td.appendChild(text);
+			tr.appendChild(td);
+			
+			var content = document.createTextNode(customer.veckodag);
+			td.appendChild(text);
+			tr.appendChild(td);
+			
+			var content = document.createTextNode(customer.ordernummer);
+			td.appendChild(text);
+			tr.appendChild(td);
+			
+			var content = document.createTextNode(customer.namn);
+			td.appendChild(text);
+			tr.appendChild(td);
+			
+			var content = document.createTextNode(customer.adress);
+			td.appendChild(text);
+			tr.appendChild(td);
+			
+			var content = document.createTextNode(customer.postnummer);
+			td.appendChild(text);
+			tr.appendChild(td);
+			
+			var content = document.createTextNode(customer.telefonnummer);
+			td.appendChild(text);
+			tr.appendChild(td);
+			
+			tblBody.appendChild(tr);
+		
+		})
+		tbl.appendChild(tblBody);
+		body.appendChild(tbl);
+	}*/
+</script>
+
+
+
+<% include partials/footer %>
