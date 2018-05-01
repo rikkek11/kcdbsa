@@ -20,10 +20,32 @@ Bokningssystem <a href="bokningar">bokningar</a> <a href="index"><b>Kommande Kö
 <button type="button" onclick="myFunction(2)">Genomförda bokningar</button>
 </p>
 
-<div id="nya" display: block> <!--Following 3 div objects contains the elements for which table of customers is shown -->
-<table id="demo"></table>
+<div id="nya" display: block>
+<table id="demo">
+	<tr>
+		<th>Datum</th>
+		<th>Tid</th> 
+		<th>Veckodag</th>
+		<th>Ordernummer</th>
+		<th>Namn</th>
+		<th>Adress</th>
+		<th>Postnummer</th>
+		<th>Telefonnummer</th>
+	</tr>
+	<% customers.forEach(function(customer){ %>
+	<tr>
+		<td><%= customer.datum %></td>
+		<td><%= customer.tid %></td>
+		<td><%= customer.veckodag %></td>
+		<td><%= customer.ordernummer %></td>
+		<td><%= customer.namn %></td>
+		<td><%= customer.adress %></td>
+		<td><%= customer.postnummer %></td>
+		<td><%= customer.telefonnummer %></td>
+	</tr>
+	<% }) %>  
+</table>
 </div>
-
 
 
 <div id="pagaende" style="display: none;">
@@ -62,61 +84,5 @@ function myFunction(sw) {
 	}
 }
 </script>
-
-
-
-
-<script method="post" action="/">/*
-//	alert(1);
-	if(customers.length>0){
-		var body = document.getElementById('demo');
-		var tbl = document.createElement("table");
-		var tblBody = document.createElement("table");
-		
-		customers.forEach(function(customer){
-			var tr = document.createElement('tr');
-			var td = document.createElement('td');
-			
-			var content = document.createTextNode(customer.datum);
-			td.appendChild(text);
-			tr.appendChild(td);
-			
-			var content = document.createTextNode(customer.tid);
-			td.appendChild(text);
-			tr.appendChild(td);
-			
-			var content = document.createTextNode(customer.veckodag);
-			td.appendChild(text);
-			tr.appendChild(td);
-			
-			var content = document.createTextNode(customer.ordernummer);
-			td.appendChild(text);
-			tr.appendChild(td);
-			
-			var content = document.createTextNode(customer.namn);
-			td.appendChild(text);
-			tr.appendChild(td);
-			
-			var content = document.createTextNode(customer.adress);
-			td.appendChild(text);
-			tr.appendChild(td);
-			
-			var content = document.createTextNode(customer.postnummer);
-			td.appendChild(text);
-			tr.appendChild(td);
-			
-			var content = document.createTextNode(customer.telefonnummer);
-			td.appendChild(text);
-			tr.appendChild(td);
-			
-			tblBody.appendChild(tr);
-		
-		})
-		tbl.appendChild(tblBody);
-		body.appendChild(tbl);
-	}*/
-</script>
-
-
 
 <% include partials/footer %>
