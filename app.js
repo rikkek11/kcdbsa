@@ -14,7 +14,7 @@ var http = require('http');
 var fs = require('fs');
 
 var db = mongojs('customersdbs', ['customers']);
-const port = 3000;
+const port = 80;
 const host = "85.220.5.86";
 
 /*
